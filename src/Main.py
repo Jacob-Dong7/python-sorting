@@ -7,7 +7,8 @@ def main():
         print("==================================================")
         print("Sorting")
         print("==================================================")
-        print("[1] Bubble Sort with File")
+        print("[1] Bubble Sort With File")
+        print("[2] Bubble Sort With Array")
         print("[-1] Exit")
         print("==================================================")
 
@@ -15,15 +16,54 @@ def main():
         if user_input == "1":
              file = get_file()
              print(file)
-             bubblesort(file)
+             bubblesort_file(file)
+        elif user_input == "2":
+             bubblesort()
+             
         elif user_input == "-1":
              exit()
-             
+
+def get_array():
+     numbers = []
+     while True:
+          print("\n==================================================")
+          print("[1] Add Numbers")
+          print("[2] Remove Number")    
+          print("[3] Done")
+          print("[4] Show")
+          print("==================================================") 
+          user_input = input("Select Option: ")
+          if user_input == "1":
+            print("==================================================") 
+            add = int(input("Enter Number: "))
+            print("==================================================") 
+            if isinstance(add, int):
+                numbers.append(add)
+                print(f"{add} is added\n")
+                continue
+            else:
+                print("Please enter an integer")
+                continue
+          elif user_input == "2":
+            print("==================================================") 
+            for i in numbers:
+                 print(i,end=" ")        
+            add = int(input("Enter index to delete: "))
+            print("==================================================")  
+          elif user_input == "3":
+               return numbers  
+          elif user_input == "4":
+            for i in numbers:
+                 print(i,end=" ")
+
+
 def get_file():
      file = input("Enter File Name: ")
      return os.path.join("tests", file)
 
-def bubblesort(file):
+def bubblesort():
+     numbers = get_array()
+def bubblesort_file(file):
         algorithm = bubble_sort()
         try:
              with open(file) as f:

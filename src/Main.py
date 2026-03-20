@@ -62,7 +62,19 @@ def get_file():
      return os.path.join("tests", file)
 
 def bubblesort():
+     algorithm = bubble_sort()
      numbers = get_array()
+     algorithm.print_original(numbers)
+
+     time_taken = 0
+
+     start_time = time.time()
+     algorithm.sort(numbers)
+     end_time = time.time()
+    
+     time_taken = end_time - start_time
+     algorithm.print(numbers, time_taken)
+
 def bubblesort_file(file):
         algorithm = bubble_sort()
         try:

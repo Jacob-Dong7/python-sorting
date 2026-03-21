@@ -14,6 +14,7 @@ def main():
         print("[3] Selection Sort With File")
         print("[4] Selection Sort With Array")
         print("[5] Merge Sort With Array")
+        print("[6] Merge Sort With File")
         print("[-1] Exit")
         print("==================================================")
 
@@ -30,13 +31,37 @@ def main():
              selectionsort()
         elif user_input == "5":
              mergesort()
+        elif user_input == "6":
+             file = get_file()
+             mergesort_file(file)
         elif user_input == "-1":
              exit()
 def mergesort():
      algorithm = merge_sort()
-     numbers = [8, 3, 5, 2]
+
+     numbers = get_array()
+     algorithm.print_original(numbers)
+     start_time = time.time()
      result = algorithm.sort(numbers)
-     print(result)
+     end_time = time.time()
+     time_taken = end_time - start_time
+     algorithm.print(result, time_taken)
+
+def mergesort_file(file):
+     try:
+          with open(file) as f:
+               numbers_str = f.readlines()
+     except FileNotFoundError:
+          print("File does not exist")
+          return
+     numbers = [int(number) for number in numbers_str]
+     algorithm = merge_sort()
+     algorithm.print_original(numbers)
+     start_time = time.time()
+     result = algorithm.sort(numbers)
+     end_time = time.time()
+     time_taken = end_time - start_time
+     algorithm.print(result, time_taken)
 def get_array():
      numbers = []
      while True:

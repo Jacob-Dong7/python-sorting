@@ -20,9 +20,7 @@ class merge_sort:
         result = self.merge(left, right)
         return result
 
-    
 
-    #[4]
     def merge(self, left, right):
         result = []
         i = 0 # i = 1 j = 2
@@ -42,4 +40,32 @@ class merge_sort:
             j += 1
         return result
 
-        
+    def print_original(self, number):
+        print("==================================================")
+        print("Original")
+        print("==================================================")
+        for i in range(len(number)):
+          if i + 1 == len(number):
+               print(f"{number[i]}]")
+          elif i == 0:
+               print(f"[{number[i]}, ",end="")
+          else:
+               print(number[i],end=", ")        
+            
+
+    def print(self, numbers, time):
+        print("==================================================")
+        print("Merge Sort Output")
+        print("==================================================")
+        for i in range(len(numbers)):
+            if i + 1 == len(numbers):
+                print(f"{numbers[i]}]")
+            elif i == 0:
+                print(f"[{numbers[i]}, ",end="")
+            else:
+                print(f"{numbers[i]}, ",end="")
+        print("==================================================")
+        print("Merge Sort Result:")
+        print(f"Size of array = {len(numbers)}")
+        print(f"Time taken = {time:.6f} seconds")
+        print("==================================================")

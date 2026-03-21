@@ -1,4 +1,5 @@
 from Bubble_sort import bubble_sort
+from Selection_sort import selection_sort
 import time
 import os
 def main():
@@ -9,6 +10,8 @@ def main():
         print("==================================================")
         print("[1] Bubble Sort With File")
         print("[2] Bubble Sort With Array")
+        print("[3] Selection Sort With File")
+        print("[4] Selection Sort With Array")
         print("[-1] Exit")
         print("==================================================")
 
@@ -19,7 +22,9 @@ def main():
              bubblesort_file(file)
         elif user_input == "2":
              bubblesort()
-             
+        elif user_input == "4":
+             selectionsort()
+
         elif user_input == "-1":
              exit()
 
@@ -60,6 +65,16 @@ def get_array():
 def get_file():
      file = input("Enter File Name: ")
      return os.path.join("tests", file)
+
+def selectionsort():
+     algorithm = selection_sort()
+     numbers = [3, 4, 1, 2]
+     algorithm.print_original(numbers)
+     start = time.time()
+     algorithm.sort(numbers)
+     end = time.time()
+     algorithm.print(numbers, end - start)
+
 
 def bubblesort():
      algorithm = bubble_sort()

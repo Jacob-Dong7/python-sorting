@@ -63,8 +63,18 @@ def get_array():
             for i in numbers:
                  print(i,end=" ")
 
-
+def list_files():
+     folder = os.path.join(os.path.dirname(__file__), "..", "tests")
+     file = os.listdir(folder)
+     in_files = [f for f in file if f.endswith(".in")]
+     print("==================================================")
+     print("Test Files:")
+     print("==================================================")
+     for f in in_files:
+          print(f)
+     print("==================================================")
 def get_file():
+     list_files()
      file = input("Enter File Name: ")
      return os.path.join("tests", file)
 

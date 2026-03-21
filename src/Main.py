@@ -18,10 +18,12 @@ def main():
         user_input = input("Select Option: ")
         if user_input == "1":
              file = get_file()
-             print(file)
              bubblesort_file(file)
         elif user_input == "2":
              bubblesort()
+        elif user_input == "3":
+             file = get_file()
+             selectionsort_file(file)
         elif user_input == "4":
              selectionsort()
 
@@ -68,13 +70,30 @@ def get_file():
 
 def selectionsort():
      algorithm = selection_sort()
-     numbers = [3, 4, 1, 2]
+     numbers = get_array()
      algorithm.print_original(numbers)
      start = time.time()
      algorithm.sort(numbers)
      end = time.time()
      algorithm.print(numbers, end - start)
 
+def selectionsort_file(file):
+     try:
+          with open(file) as f:
+               numbers_str = f.readlines()
+     except FileNotFoundError:
+          print("File does not exist")
+          return
+     algorithm = selection_sort()
+     time_taken = 0
+     numbers = [int(number) for number in numbers_str]
+     algorithm.print_original(numbers)
+     start_time = time.time()
+     algorithm.sort(numbers)
+     end_time = time.time()
+
+     time_taken = end_time - start_time
+     algorithm.print(numbers, time_taken)
 
 def bubblesort():
      algorithm = bubble_sort()

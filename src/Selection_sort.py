@@ -45,5 +45,8 @@ class selection_sort:
                 print(f"[{numbers[i]}, ",end="")
             else:
                 print(f"{numbers[i]}, ",end="")
+        print("==================================================")
+        print("Selection Sort Result:")
+        print(f"Size of array = {len(numbers)}")
         print(f"Time taken = {time:.6f} seconds")
         print("==================================================")

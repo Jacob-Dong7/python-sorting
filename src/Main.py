@@ -1,9 +1,10 @@
 from Bubble_sort import bubble_sort
 from Selection_sort import selection_sort
+from Merge_sort import merge_sort
 import time
 import os
 def main():
-
+    #python3 src/Main.py
     while True:
         print("==================================================")
         print("Sorting")
@@ -12,6 +13,7 @@ def main():
         print("[2] Bubble Sort With Array")
         print("[3] Selection Sort With File")
         print("[4] Selection Sort With Array")
+        print("[5] Merge Sort With Array")
         print("[-1] Exit")
         print("==================================================")
 
@@ -26,10 +28,15 @@ def main():
              selectionsort_file(file)
         elif user_input == "4":
              selectionsort()
-
+        elif user_input == "5":
+             mergesort()
         elif user_input == "-1":
              exit()
-
+def mergesort():
+     algorithm = merge_sort()
+     numbers = [8, 3, 5, 2]
+     result = algorithm.sort(numbers)
+     print(result)
 def get_array():
      numbers = []
      while True:
